@@ -46,7 +46,8 @@ namespace Triple.Infrastructure
             }
             else
             {
-                return new MultipartFormDataContent(flatParams);
+                var jsonString = JsonSerializer.Serialize(flatParams);
+                return new MultipartFormDataContent(jsonString);
             }
         }
 
@@ -206,7 +207,7 @@ namespace Triple.Infrastructure
                 }
 
                 // Skip properties not annotated with `[JsonProperty]`
-                var attribute = property.GetCustomAttribute<JsonPropertyAttribute>();
+                var attribute = property.GetCustomAttribute<JsonPropertyNameAttribute>();
                 if (attribute == null)
                 {
                     continue;
@@ -221,7 +222,7 @@ namespace Triple.Infrastructure
                     continue;
                 }
 
-                string key = attribute.PropertyName;
+                string key = attribute.Name;
                 string newPrefix = NewPrefix(key, keyPrefix);
 
                 flatParams.AddRange(FlattenParamsValue(value, newPrefix));

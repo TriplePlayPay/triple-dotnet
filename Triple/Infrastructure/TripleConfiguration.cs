@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
+using System.IO;
 using System.Reflection;
 using System.Text.Json;
 using Triple.Interfaces;
+using Microsoft.Extensions.Configuration;
 
 namespace Triple.Infrastructure
 {
@@ -14,12 +15,18 @@ namespace Triple.Infrastructure
     {
         private static string apiKey;
 
-        private static int maxNetworkRetries = SystemNetHttpClient.DefaultMaxNumberRetries;
-
         private static ITripleClient TripleClient;
+
+        private static IConfiguration Configuration { get; }
+
+        private static int maxNetworkRetries = SystemNetHttpClient.DefaultMaxNumberRetries;
 
         static TripleConfiguration()
         {
+            Configuration = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory()) // Update the base path as needed
+                .AddJsonFile("appsettings.json") // Update the file name as needed
+                .Build();
         }
 
         /// <summary>Gets or sets the API key.</summary>
@@ -32,9 +39,9 @@ namespace Triple.Infrastructure
             get
             {
                 if (string.IsNullOrEmpty(apiKey) &&
-                    !string.IsNullOrEmpty(ConfigurationManager.AppSettings["TripleApiKey"]))
+                    !string.IsNullOrEmpty(Configuration["AppSettings:TripleApiKey"]))
                 {
-                    apiKey = ConfigurationManager.AppSettings["TripleApiKey"];
+                    apiKey = Configuration["AppSettings:TripleApiKey"];
                 }
 
                 return apiKey;
@@ -79,6 +86,7 @@ namespace Triple.Infrastructure
             var httpClient = new SystemNetHttpClient(
                 httpClient: null,
                 maxNetworkRetries: MaxNetworkRetries);
+
             return new TripleClient(ApiKey, httpClient: httpClient);
         }
     }
