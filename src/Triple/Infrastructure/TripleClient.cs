@@ -32,7 +32,6 @@ namespace Triple.Infrastructure
         /// </exception>
         public TripleClient(
             string apiKey = null,
-            string clientId = null,
             IHttpClient httpClient = null,
             string apiBase = null)
         {

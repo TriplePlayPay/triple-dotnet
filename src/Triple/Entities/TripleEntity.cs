@@ -30,17 +30,6 @@ namespace Triple.Entities
         [JsonIgnore]
         public TripleResponse TripleResponse { get; set; }
 
-        /// <summary>
-        /// Deserializes the JSON to a Triple object type. The type is automatically deduced from
-        ///  the <c>object</c> key in the JSON string.
-        /// </summary>
-        /// <param name="value">The object to deserialize.</param>
-        /// <returns>The deserialized Triple object from the JSON string.</returns>
-        public static IHasObject FromJson(string value)
-        {
-            return JsonUtils.DeserializeObject<IHasObject>(value);
-        }
-
         /// <summary>Deserializes the JSON to the specified Triple object type.</summary>
         /// <typeparam name="T">The type of the Triple object to deserialize to.</typeparam>
         /// <param name="value">The object to deserialize.</param>
