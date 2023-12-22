@@ -20,6 +20,7 @@ namespace Triple.Services
         : base(client)
         {
         }
+
         public override string BasePath => "/charge";
 
         public virtual Charge Create(ChargeCreateOptions options, RequestOptions requestOptions = null)
