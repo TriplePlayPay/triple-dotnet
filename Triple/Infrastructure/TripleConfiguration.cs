@@ -4,6 +4,7 @@ using System.IO;
 using System.Reflection;
 using System.Text.Json;
 using Triple.Interfaces;
+using Triple.Constants;
 using Microsoft.Extensions.Configuration;
 
 namespace Triple.Infrastructure
@@ -25,7 +26,7 @@ namespace Triple.Infrastructure
         {
             Configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory()) // Update the base path as needed
-                .AddJsonFile("appsettings.json") // Update the file name as needed
+                .AddJsonFile(Application.AppSettings) // Update the file name as needed
                 .Build();
         }
 
@@ -39,9 +40,9 @@ namespace Triple.Infrastructure
             get
             {
                 if (string.IsNullOrEmpty(apiKey) &&
-                    !string.IsNullOrEmpty(Configuration["AppSettings:TripleApiKey"]))
+                    !string.IsNullOrEmpty(Configuration[Application.TripleApiKey]))
                 {
-                    apiKey = Configuration["AppSettings:TripleApiKey"];
+                    apiKey = Configuration[Application.TripleApiKey];
                 }
 
                 return apiKey;
