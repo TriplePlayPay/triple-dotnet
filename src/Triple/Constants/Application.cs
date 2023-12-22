@@ -9,6 +9,6 @@ namespace Triple.Constants
     public static class Application
     {
         public const string AppSettings = "appsettings.json";
-        public const string TripleApiKey = "AppSettings:TripleApiKey";
+        public const string TripleApiKey = "TripleApiKey";
     }
 }

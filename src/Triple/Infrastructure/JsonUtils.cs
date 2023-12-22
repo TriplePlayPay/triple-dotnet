@@ -37,7 +37,7 @@ namespace Triple.Infrastructure
                 throw new ArgumentNullException(nameof(value));
             }
 
-            return JsonSerializer.Deserialize<Type>(value);
+            return JsonSerializer.Deserialize(value, type);
         }
 
         /// <summary>

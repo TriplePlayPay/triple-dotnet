@@ -16,7 +16,7 @@ namespace Triple.Infrastructure
     {
         private static string apiKey;
 
-        private static ITripleClient TripleClient;
+        private static ITripleClient tripleClient;
 
         private static IConfiguration Configuration { get; }
 
@@ -66,6 +66,37 @@ namespace Triple.Infrastructure
             {
                 maxNetworkRetries = value;
             }
+        }
+
+
+        /// <summary>
+        /// Gets or sets a custom <see cref="TripleClient"/> for sending requests to Triple's
+        /// API. You can use this to use a custom message handler, set proxy parameters, etc.
+        /// </summary>
+        /// <example>
+        /// To use a custom message handler:
+        /// <code>
+        /// System.Net.Http.HttpMessageHandler messageHandler = ...;
+        /// var httpClient = new System.Net.HttpClient(messageHandler);
+        /// var TripleClient = new Triple.TripleClient(
+        ///     TripleApiKey,
+        ///     httpClient: new Triple.SystemNetHttpClient(httpClient));
+        /// Triple.TripleConfiguration.TripleClient = TripleClient;
+        /// </code>
+        /// </example>
+        public static ITripleClient TripleClient
+        {
+            get
+            {
+                if (tripleClient == null)
+                {
+                    tripleClient = BuildDefaultTripleClient();
+                }
+
+                return tripleClient;
+            }
+
+            set => tripleClient = value;
         }
 
         private static TripleClient BuildDefaultTripleClient()

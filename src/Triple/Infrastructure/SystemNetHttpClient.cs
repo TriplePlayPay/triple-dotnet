@@ -280,12 +280,6 @@ namespace Triple.Infrastructure
             requestMessage.Headers.TryAddWithoutValidation("User-Agent", this.userAgentString);
             requestMessage.Headers.Authorization = request.AuthorizationHeader;
 
-            // Custom headers
-            foreach (var header in request.TripleHeaders)
-            {
-                requestMessage.Headers.Add(header.Key, header.Value);
-            }
-
             // Request body
             requestMessage.Content = request.Content;
 

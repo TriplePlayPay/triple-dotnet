@@ -53,7 +53,7 @@ namespace Triple.Abstract
         /// </remarks>
         public ITripleClient Client
         {
-            get => this.client;
+            get => this.client ?? TripleConfiguration.TripleClient;
             set => this.client = value;
         }
 
