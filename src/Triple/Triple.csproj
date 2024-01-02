@@ -1,14 +1,27 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
+    <TargetFrameworks>net8.0;net5.0;net6.0;netcoreapp3.1;netstandard2.0;net462</TargetFrameworks>
+    <Description>Triple is a sync/async .NET 4.6.2+ client, and a portable class library for the Triple Play Pay API.  (Official Library)</Description>
+    <Version>1.0.1</Version>
+    <LangVersion>8</LangVersion>
+    <Authors>Triple Play Pay, Jeremy Bolin</Authors>
     <Nullable>enable</Nullable>
+    <NuGetAudit>false</NuGetAudit>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="All" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
+  </ItemGroup>
+
+    <ItemGroup Condition=" '$(TargetFramework)' == 'net462' ">
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Net.Http" />
   </ItemGroup>
 
 </Project>
