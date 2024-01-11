@@ -29,7 +29,6 @@ var createOptions = new ChargeCreateOptions
     CardVerificationValue = "123",
     ExpirationMonth = "05",
     ExpirationYear = "29",
-    Source = "Testing",
 };
 
 var result = service.Create(createOptions);
