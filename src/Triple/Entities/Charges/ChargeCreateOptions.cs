@@ -71,5 +71,11 @@ namespace Triple.Entities.Charges
         /// </summary>
         [JsonPropertyName("source")]
         public string? Source { get; set; }
+
+        /// <summary>
+        /// (Optional) A Triple Play Pay issued token which can be used to purchase. 
+        /// </summary>
+        [JsonPropertyName("token")]
+        public string? Token { get; set; }
     }
 }

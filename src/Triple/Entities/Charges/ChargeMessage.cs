@@ -36,6 +36,12 @@ namespace Triple.Entities.Charges
         public string Tip { get; set; }
 
         /// <summary>
+        /// Represents a digitially signed payment token which can be used.
+        /// </summary>
+        [JsonPropertyName("token")]
+        public string Token { get; set; }
+
+        /// <summary>
         /// This is a custom message set to provide additional context
         /// of the transaction which was processed.
         /// </summary>
