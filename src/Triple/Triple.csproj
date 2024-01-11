@@ -8,6 +8,7 @@
     <Authors>Triple Play Pay, Jeremy Bolin</Authors>
     <Nullable>enable</Nullable>
     <NuGetAudit>false</NuGetAudit>
+    <SuppressTfmSupportBuildWarnings>true</SuppressTfmSupportBuildWarnings>
   </PropertyGroup>
 
   <ItemGroup>
