@@ -19,7 +19,7 @@ namespace Triple.Entities.Cards
         /// This is a unique code printed on cards to authorize payments.
         /// </summary>
         [JsonPropertyName("cvv")]
-        public string CardVerificationValue { get; set; }
+        public string? CardVerificationValue { get; set; }
 
         /// <summary>
         /// A two-digit month value for the expiration of the card.
@@ -37,6 +37,6 @@ namespace Triple.Entities.Cards
         /// (Optional) A valid email address representing a customer.
         /// </summary>
         [JsonPropertyName("email")]
-        public string Email { get; set; }
+        public string? Email { get; set; }
     }
 }

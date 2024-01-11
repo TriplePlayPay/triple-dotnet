@@ -4,11 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Triple.Abstract;
+using Triple.Interfaces;
+using Triple.Infrastructure;
+using Triple.Entities.BankAccounts;
+using System.Net.Http;
 
 namespace Triple.Services
 {
     public class BankAccountService : Service<BankAccount>,
-        ICreatable<Card, CardCreateOptions>
+        ICreatable<BankAccount, BankAccountCreateOptions>
     {
         public BankAccountService()
             : base(null)
