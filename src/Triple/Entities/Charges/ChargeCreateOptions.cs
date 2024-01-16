@@ -14,7 +14,7 @@ namespace Triple.Entities.Charges
         /// Amount intended to be collected by this payment.
         /// </summary>
         [JsonPropertyName("amount")]
-        public float Amount { get; set; }
+        public string Amount { get; set; }
 
         /// <summary>
         /// Eight to twelve digit account number for the 
