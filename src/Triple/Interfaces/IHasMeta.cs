@@ -8,7 +8,7 @@ namespace Triple.Interfaces
 {
     /// <summary>
     /// Interface that identifies entities with a Meta property of type
-    /// <see cref="Dictionary{String, Object}" />.
+    /// <see cref="dynamic" />.
     /// </summary>
     public interface IHasMeta
     {
@@ -16,6 +16,6 @@ namespace Triple.Interfaces
         /// Set of key-value pairs that you can attach to an object. This can be useful for storing
         /// additional information about the object in a structured format.
         /// </summary>
-        Dictionary<string, object> Meta { get; set; }
+        dynamic Meta { get; set; }
     }
 }

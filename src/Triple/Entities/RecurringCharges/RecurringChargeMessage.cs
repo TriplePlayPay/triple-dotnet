@@ -12,7 +12,7 @@ namespace Triple.Entities.RecurringCharges
     /// The <c>RecurringChargeMessage</c> object represents nested 
     /// object highlighting transactional details of a recurring charge.
     /// </summary>
-    public class RecurringChargeMessage : IHasMeta
+    public class RecurringChargeMessage
     {
         /// <summary>
         /// Decimal string representing the amount processed.
@@ -44,13 +44,7 @@ namespace Triple.Entities.RecurringCharges
         /// <summary>
         /// Describes the frequency of the charge.
         /// </summary>
-        [JsonPropertyName("frequency")]
-        public object Frequency { get; set; }
-
-        /// <summary>
-        /// Set of key-value pairs that can be attached to an object.
-        /// </summary>
-        [JsonPropertyName("meta")]
-        public Dictionary<string, object> Meta { get; set; }
+        [JsonPropertyName("cycles")]
+        public string Cycles { get; set; }
     }
 }
