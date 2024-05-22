@@ -12,7 +12,7 @@ namespace Triple.Entities.RecurringCharges
     /// The <c>RecurringChargeMessage</c> object represents nested 
     /// object highlighting transactional details of a recurring charge.
     /// </summary>
-    public class RecurringChargeMessage : IHasMeta
+    public class RecurringChargeMessage
     {
         /// <summary>
         /// Decimal string representing the amount processed.

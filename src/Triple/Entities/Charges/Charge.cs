@@ -16,7 +16,7 @@ namespace Triple.Entities.Charges
     public class Charge : TripleEntity<Charge>, IHasId, IHasStatus
     {
         /// <summary>
-        /// Unique identifier for the object.
+        /// Unique Request Id
         /// </summary>
         [JsonPropertyName("id")]
         public string Id { get; set; }

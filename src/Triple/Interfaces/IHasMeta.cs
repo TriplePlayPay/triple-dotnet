@@ -8,7 +8,7 @@ namespace Triple.Interfaces
 {
     /// <summary>
     /// Interface that identifies entities with a Meta property of type
-    /// <see cref="Dictionary{String, Object}" />.
+    /// <see cref="dynamic" />.
     /// </summary>
     public interface IHasMeta
     {
