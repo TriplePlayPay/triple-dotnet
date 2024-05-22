@@ -51,6 +51,6 @@ namespace Triple.Entities.RecurringCharges
         /// Set of key-value pairs that can be attached to an object.
         /// </summary>
         [JsonPropertyName("meta")]
-        public Dictionary<string, object> Meta { get; set; }
+        public dynamic? Meta { get; set; }
     }
 }
