@@ -67,7 +67,23 @@ namespace Triple.Entities.Charges
         /// </summary>
         [JsonPropertyName("message")]
         public string? Message { get; set; }
-        
+
+
+        /// <summary>
+        /// An additional charge that gets added to
+        /// the total and billed to the end customer.
+        /// </summary>
+        [JsonPropertyName("surcharge")]
+        public string? Surcharge { get; set; }
+
+
+        /// <summary>
+        /// An additional charge that gets added to
+        /// the total and billed to the end customer.
+        /// </summary>
+        [JsonPropertyName("platform_fee")]
+        public string? PlatformFee { get; set; }
+
         /// <summary>
         /// This represents additional information returned
         /// directly back from the end processor.

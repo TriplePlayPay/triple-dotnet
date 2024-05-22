@@ -44,7 +44,13 @@ namespace Triple.Entities.RecurringCharges
         /// <summary>
         /// Describes the frequency of the charge.
         /// </summary>
-        [JsonPropertyName("cycles")]
-        public string Cycles { get; set; }
+        [JsonPropertyName("frequency")]
+        public object Frequency { get; set; }
+
+        /// <summary>
+        /// Set of key-value pairs that can be attached to an object.
+        /// </summary>
+        [JsonPropertyName("meta")]
+        public dynamic? Meta { get; set; }
     }
 }
