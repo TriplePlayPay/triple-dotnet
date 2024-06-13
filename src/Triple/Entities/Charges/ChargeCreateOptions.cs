@@ -77,5 +77,11 @@ namespace Triple.Entities.Charges
         /// </summary>
         [JsonPropertyName("token")]
         public string? Token { get; set; }
+
+        /// <summary>
+        /// Set of key-value pairs that can be attached to an object.
+        /// </summary>
+        [JsonPropertyName("meta")]
+        public dynamic? Meta { get; set; }
     }
 }
